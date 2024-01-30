@@ -7,7 +7,7 @@
 :root {
     --gradient-primary: linear-gradient(120deg, rgba(3,0,44,1) 4%, rgba(38,27,163,1) 45%, rgba(9,112,176,1) 79%, rgba(0,148,179,1) 100%);
     --gradient-header: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
-    --background-color: #2A2634;
+    
     --text-color: white;
     --secondary-text-color: #A1A1AA;
 }
@@ -52,16 +52,21 @@ main {
 
 section {
     color: var(--text-color);
-    background-image: var(--gradient-header);
+    
     padding-top: 4px;
     border-radius: 10px;
 }
 
 section div {
-    background-color: var(--background-color);
     padding: 32px;
     padding-top: 24px;
     border-radius: 8px;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 section h2 {
@@ -70,7 +75,7 @@ section h2 {
 
 section p {
     letter-spacing: -0.18px;
-    color: var(--secondary-text-color);
+    
 }
 
 section ul {
