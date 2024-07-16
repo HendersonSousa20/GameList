@@ -7,7 +7,6 @@
 :root {
     --gradient-primary: linear-gradient(120deg, rgba(3,0,44,1) 4%, rgba(38,27,163,1) 45%, rgba(9,112,176,1) 79%, rgba(0,148,179,1) 100%);
     --gradient-header: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
-    
     --text-color: white;
     --secondary-text-color: #A1A1AA;
 }
@@ -16,6 +15,12 @@ body {
     background: url("https://i.redd.it/1asyzovvrn8a1.gif") no-repeat center center/cover;
     font-family: 'Inter', sans-serif;
     line-height: 160%;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 header {
@@ -30,11 +35,13 @@ header div {
     border-radius: 50%;
     display: flex;
     padding: 4px;
-    transition: transform .3s;
+    transition: transform .3s, box-shadow .3s;
+    animation: fromTop .7s .2s backwards;
 }
 
 header div:hover {
     transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
 
 header div img {
@@ -48,34 +55,75 @@ main {
     margin: 32px auto;
     display: grid;
     gap: 24px;
+    animation: fadeInUp .8s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 section {
     color: var(--text-color);
-    
     padding-top: 4px;
     border-radius: 10px;
+    animation: fromBottom .7s backwards;
 }
 
 section div {
     padding: 32px;
     padding-top: 24px;
     border-radius: 8px;
-    background: rgba( 255, 255, 255, 0.25 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: transform .3s, box-shadow .3s;
+}
+
+section div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
 section h2 {
     letter-spacing: -0.47px;
+    animation: fadeInRight .7s backwards;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 section p {
     letter-spacing: -0.18px;
-    
+    animation: fadeInLeft .7s backwards;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 section ul {
@@ -86,7 +134,7 @@ section ul {
 }
 
 section ul li {
-    transition: transform .3s;
+    transition: transform .3s, filter .3s;
     list-style: none;
 }
 
@@ -98,20 +146,47 @@ section ul li:hover {
 .games-list img {
     width: 90px;
     border-radius: 8px;
+    animation: zoomIn .5s ease-in-out;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .channel-list img {
-    border-radius: 50%; 
+    border-radius: 50%;
     width: 70px;
     border: 1px solid #443E54;
+    animation: zoomIn .5s ease-in-out;
 }
 
-header div {
-    animation: fromTop .7s .2s backwards;
+@keyframes fromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-main section {
-    animation: fromBottom .7s backwards;
+@keyframes fromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 main section:nth-child(1) {
@@ -126,33 +201,8 @@ main section:nth-child(3) {
     animation-delay: .6s;
 }
 
-@keyframes fromTop {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fromBottom {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media  (max-width: 600px) {
+@media (max-width: 600px) {
     body {
-            background-image: url("https://i.pinimg.com/originals/bd/1c/94/bd1c941704d8821161d18a2b39915833.gif");
+        background-image: url("https://i.pinimg.com/originals/bd/1c/94/bd1c941704d8821161d18a2b39915833.gif");
     }
-    
 }
